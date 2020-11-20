@@ -1,0 +1,17 @@
+version: '2'
+services:
+  jm-app:
+    image: app
+    ports:
+      - "7070:7070"
+    depends_on:
+      - jm-postgres
+  jm-postgres:
+    image: postgres:10.1
+    ports:
+      - "5431:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
+
